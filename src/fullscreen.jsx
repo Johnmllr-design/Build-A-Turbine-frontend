@@ -28,8 +28,12 @@ function Fullscreen(props) {
     /* add a turbine to the backend */
     async function addTurbine(username, type, date) {
         try {
-        const backendApiString = "http://localhost:8080/addturbine/" + username + "/" + type + "/" + date;
-        const response = await fetch(backendApiString);
+        const backendApiString = "https://determined-luck-production-4525.up.railway.app/addturbine";
+        const response = await fetch(backendApiString, {
+            method : "POST",
+            headers : {"Content-Type" : "application/json"},
+            body : JSON.stringify({username, type, date})
+        });
         const result = await response.text();
         } catch (error) {
             console.log(error);

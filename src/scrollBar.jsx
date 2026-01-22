@@ -18,7 +18,7 @@ function ScrollBar(props) {
                 turbineOptions.map((turbineName, i) => {
                     return (
                         <div key={i} className={selected == i? "option-item-2" : "option-item" } onClick={() => {setSelected(i); selector(turbineName);}}>
-                            <img src='src/assets/wind-turbine.svg'/>
+                                <TurbineSpinner size={10} speed={0.4}/>
                             {turbineName}
                         </div>
                     )
