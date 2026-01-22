@@ -44,8 +44,8 @@ function LoginScreen() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ username, password }),
                 });
-                console.log("we got this response: ", response);
                 const result = await response.text();
+                console.log("we got this response: ", result);
 
                 /* log in if it's a new profile */
                 if (result === 'true'){
@@ -57,6 +57,7 @@ function LoginScreen() {
                 console.log(error);
             }
         }else{
+
             return false;
         }
     }
