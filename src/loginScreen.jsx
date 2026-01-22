@@ -15,7 +15,7 @@ function LoginScreen() {
         
             console.log("valid credentials");
             try{
-                const response = await fetch("determined-luck-production-4525.up.railway.app/loginuser", {
+                const response = await fetch("https://determined-luck-production-4525.up.railway.app/loginuser", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ username, password }),
@@ -39,7 +39,7 @@ function LoginScreen() {
         if (username.length > 3 && password.length > 4 && password === p2){
             console.log("MAKING NEW USER: valid credentials");
             try{
-                const response = await fetch("determined-luck-production-4525.up.railway.app/makenewuser", {
+                const response = await fetch("https://determined-luck-production-4525.up.railway.app/makenewuser", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ username, password }),
