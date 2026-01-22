@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
 import './App.css'
+import TurbineSpinner from './turbineSpinner'
+
 
 function ScrollBar(props) {
 
@@ -19,6 +21,7 @@ function ScrollBar(props) {
                     return (
                         <div key={i} className={selected == i? "option-item-2" : "option-item" } onClick={() => {setSelected(i); selector(turbineName);}}>
                             {turbineName}
+                            <TurbineSpinner size={10} speed={0.3}/>
                         </div>
                     )
                 })
