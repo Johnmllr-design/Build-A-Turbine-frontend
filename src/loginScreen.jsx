@@ -44,7 +44,7 @@ function LoginScreen() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ username, password }),
                 });
-                console.log(response);
+                console.log("we got this response: ", response);
                 const result = await response.text();
 
                 /* log in if it's a new profile */
