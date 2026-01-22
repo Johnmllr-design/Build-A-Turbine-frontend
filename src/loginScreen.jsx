@@ -37,7 +37,7 @@ function LoginScreen() {
 
     async function makeNew(username, password, p2){
         if (username.length > 3 && password.length > 4 && password === p2){
-            console.log("valid credentials");
+            console.log("MAKING NEW USER: valid credentials");
             try{
                 const response = await fetch("determined-luck-production-4525.up.railway.app/makenewuser", {
                     method: "POST",
