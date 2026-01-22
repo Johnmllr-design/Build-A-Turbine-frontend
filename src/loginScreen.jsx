@@ -1,0 +1,96 @@
+import {useState} from 'react'
+import TurbineCard from './turbineCard'
+import TurbineSidebar from './turbineSidebar'
+import React from 'react'
+import Fullscreen from './fullscreen'
+import './App.css'
+import TurbineSpinner from './turbineSpinner'
+
+function LoginScreen() {
+    const [loggedIn, setLogin] = useState(false);
+
+    /* when the login is successful, provide the main functionality */
+    /* make a new user account on login */
+    async function login(username, password){
+        
+            console.log("valid credentials");
+            try{
+                const response = await fetch("http://localhost:8080/loginuser", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password }),
+                });
+                console.log(response);
+                const result = await response.text();
+
+                /* log in if it's a new profile */
+                if (result === 'true'){
+                    setLogin(true)
+                }else{
+                    console.log("User doesn't exists")
+                }
+            }catch(error){
+                console.log(error);
+        }
+    }
+
+
+    async function makeNew(username, password, p2){
+        if (username.length > 3 && password.length > 4 && password === p2){
+            console.log("valid credentials");
+            try{
+                const response = await fetch("http://localhost:8080/makenewuser", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password }),
+                });
+                console.log(response);
+                const result = await response.text();
+
+                /* log in if it's a new profile */
+                if (result === 'true'){
+                    setLogin(true)
+                }else{
+                    console.log("User exists")
+                }
+            }catch(error){
+                console.log(error);
+            }
+        }else{
+            return false;
+        }
+    }
+
+
+
+
+    if (!loggedIn){
+        return (
+        <div>
+            <TurbineSpinner size={140} speed={0.7}/>
+            <TurbineSpinner size={140} speed={0.3}/>
+            <TurbineSpinner size={140} speed={0.5}/>
+            <TurbineSpinner size={140} speed={40}/>
+            <div className='app-headline'>Build-A-Turbine</div>
+            <div className='div4'>
+                <div className='div2'>
+                    <input className='div' id="uname" placeholder='username'/>
+                    <input className='div' id="pw" placeholder='password'/>
+                    <button className='btn' onClick={() => {login(document.getElementById("uname").value, document.getElementById("pw").value)}}>Log in</button>
+                </div>
+                <div className='div2'>
+                    <input className='div' id="uname2" placeholder='username'/>
+                    <input className='div' id="pw2" placeholder='password'/>
+                    <input className='div' id="rpw2" placeholder='retype password'/><br/>
+                    <button className='btn' onClick={() => {makeNew(document.getElementById("uname2").value, document.getElementById("pw2").value, document.getElementById("rpw2").value)}}>Make a New Account</button>
+                </div>
+            </div>
+        </div>
+        )
+    } else {
+        return (
+            <Fullscreen username={document.getElementById('uname').value}/>
+        )
+    }
+}
+export default LoginScreen
