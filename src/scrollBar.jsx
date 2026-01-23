@@ -21,7 +21,7 @@ function ScrollBar(props) {
                     return (
                         <div key={i} className={selected == i? "option-item-2" : "option-item" } onClick={() => {setSelected(i); selector(turbineName);}}>
                             {turbineName}
-                            <TurbineSpinner size={10} speed={0.3}/>
+                            <TurbineSpinner size={30} speed={0.3}/>
                         </div>
                     )
                 })

@@ -27,7 +27,7 @@ function LoginScreen() {
                 if (result === 'true'){
                     setLogin(true)
                 }else{
-                    console.log("User doesn't exists")
+                    console.log("the following user doesn't exist: ", username);
                 }
             }catch(error){
                 console.log(error);
@@ -49,9 +49,9 @@ function LoginScreen() {
 
                 /* log in if it's a new profile */
                 if (result === 'true'){
-                    setLogin(true)
+                    setLogin(true);
                 }else{
-                    console.log("User exists")
+                    console.log("User exists");
                 }
             }catch(error){
                 console.log(error);
