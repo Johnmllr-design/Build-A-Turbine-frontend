@@ -78,9 +78,9 @@ function LoginScreen() {
                     <button className='btn' onClick={() => {login(document.getElementById("uname").value, document.getElementById("pw").value)}}>Log in</button>
                 </div>
                 <div className='div2'>
-                    <input className='div' id="uname2" placeholder='username'/>
-                    <input className='div' id="pw2" placeholder='password'/>
-                    <input className='div' id="rpw2" placeholder='retype password'/><br/>
+                    <input className='div' id="uname2" placeholder='username (3+ chars)'/>
+                    <input className='div' id="pw2" placeholder='password (4+ chars)'/>
+                    <input className='div' id="rpw2" placeholder='retype password (4+ chars)'/><br/>
                     <button className='btn' onClick={() => {makeNew(document.getElementById("uname2").value, document.getElementById("pw2").value, document.getElementById("rpw2").value)}}>Make a New Account</button>
                 </div>
             </div>
