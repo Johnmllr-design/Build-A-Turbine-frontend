@@ -6,9 +6,12 @@ import Fullscreen from './fullscreen'
 import './App.css'
 import TurbineSpinner from './turbineSpinner'
 import WelcomeInfo from './welcomeInfo'
+import Explanation from './explanation'
 
 function LoginScreen() {
     const [loggedIn, setLogin] = useState(false);
+    const [info, setInfo] = useState(false);
+
 
     /* when the login is successful, provide the main functionality */
     /* make a new user account on login */
@@ -61,8 +64,9 @@ function LoginScreen() {
         }
     }
 
-
-
+    if (info){
+        return (<Explanation/>)
+    }
 
     if (!loggedIn){
         return (
@@ -81,10 +85,12 @@ function LoginScreen() {
                     <button className='btn' onClick={() => {makeNew(document.getElementById("uname2").value, document.getElementById("pw2").value, document.getElementById("rpw2").value)}}>Make a New Account</button>
                 </div>
             </div>
-            <button className='welc'>How does buildATurbine work?</button>
+            <button className='welc' onClick={() => {console.log("Clicked me!"); setInfo(true); }}>How does buildATurbine work?</button>
         </div>
         )
-    } else {
+    } 
+    
+    else {
         return (
             <Fullscreen username={document.getElementById('uname').value}/>
         )
