@@ -22,6 +22,11 @@ function Fullscreen(props) {
     const [turbines, setTurbine] = useState([]);
     const [selectedTurbine, setSelected] = useState("select a type above");
     const [mapClicked, setClick] = useState(false);
+    const [opened, setOpened] = useState(false);
+    const [clickedLocation, setLoc] = useState({lat : 40, lng : 265});
+    const [mapTurb, setMapTurb] = useState("");
+
+
     const username = props.username;
   
 
@@ -75,10 +80,18 @@ function Fullscreen(props) {
                         {
                         turbines.map((turb, i) => 
                             {return(
-                                <AdvancedMarker key={i} position={{lat : Number(turb.lat), lng :  Number(turb.long)}}>
+                                <AdvancedMarker key={i} position={{lat : Number(turb.lat), lng :  Number(turb.long)}} onClick={() => {
+                                    setMapTurb(turb.type); 
+                                    setOpened(true);
+                                    setLoc({lat : Number(turb.lat), lng :  Number(turb.long)})}}>
                                     <Pin background = "pink" glyphColor="pink" borderColor="black" scale={0.5} />
                                 </AdvancedMarker>)
                             })
+                        }
+                        {opened && 
+                        <InfoWindow position={clickedLocation} onCloseClick={() => {setOpened(false);}}>
+                            <div className='btn'>{mapTurb} at {clickedLocation.lat.toString()}, {clickedLocation.lng.toString()}</div>
+                        </InfoWindow>
                         }
                     </Map>
                 </div>

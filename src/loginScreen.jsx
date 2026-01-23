@@ -84,6 +84,7 @@ function LoginScreen() {
                     <button className='btn' onClick={() => {makeNew(document.getElementById("uname2").value, document.getElementById("pw2").value, document.getElementById("rpw2").value)}}>Make a New Account</button>
                 </div>
             </div>
+            <button className='welc'>How does buildATurbine work?</button>
         </div>
         )
     } else {
