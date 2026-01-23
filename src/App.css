@@ -98,21 +98,41 @@
 
 
 .div4{
-  background: #fdfdfd00;
-  border-radius: 16px;
-  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #f8f6f6;
-  height: 750px;
-  border: 3px solid rgba(246, 246, 246, 0);
-  max-width: 350px;
-  margin: 1rem auto;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  display: flex; /* Use flexbox for easy layout control */
-  flex-wrap: wrap; /* Allows children to wrap if they run out of space */
-  padding: 10px; /* Space above and to the sides inside the parent */
-  gap: 10px; /* Space between the children themselves */
+  /* Glassy container */
+  background: rgba(255,255,255,0.04);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.28);
+
+  /* Layout */
+  display: flex;
+  flex-direction: row;          /* SIDE-BY-SIDE */
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 24px;
+
+  /* Sizing */
+  width: min(760px, 96vw);      /* wide enough for 2 panels */
+  height: auto;
+  min-height: 420px;
+  margin: 2rem auto;
+  padding: 24px;
+
+  /* Typography */
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
+
+.div4:hover{
+  box-shadow: 0 26px 90px rgba(0,0,0,0.38);
+}
+
 .scrolldiv{
   background: #fff;
   border-radius: 16px;
