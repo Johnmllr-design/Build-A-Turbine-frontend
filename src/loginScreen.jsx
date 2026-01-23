@@ -69,7 +69,6 @@ function LoginScreen() {
         return (
         <div className='regular-card'>
             <div className='app-headline'>Build-A-Turbine</div>
-            <WelcomeInfo/>
             <div className='div4'>
                 <div className='div2'>
                     <input className='div' id="uname" placeholder='username'/>
