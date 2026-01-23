@@ -57,16 +57,42 @@
 }
 
 .app-headline {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Premium modern font */
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+               BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  /* Strong but refined scale */
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
 
-  color: #e2e229ab; /* near-black */
+  /* Gradient text (clean, not gimmicky) */
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #dbe1ff 40%,
+    #f5c8ff 70%,
+    #ffffff 100%
+  );
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Subtle depth */
+  text-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(99, 102, 241, 0.35);
+
+  /* Optional micro-animation */
+  animation: headlineGlow 6s ease-in-out infinite;
+
+  margin: 0;
 }
+
 
 
 
@@ -76,16 +102,16 @@
   border-radius: 16px;
   box-shadow: 0 12px 20px rgba(0,0,0,0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #13020273;
+  color: #f8f6f6;
   height: 750px;
-  border: 3px solid rgb(246, 246, 246);
+  border: 3px solid rgba(246, 246, 246, 0);
   max-width: 350px;
   margin: 1rem auto;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   display: flex; /* Use flexbox for easy layout control */
   flex-wrap: wrap; /* Allows children to wrap if they run out of space */
-  padding: 20px; /* Space above and to the sides inside the parent */
-  gap: 20px; /* Space between the children themselves */
+  padding: 10px; /* Space above and to the sides inside the parent */
+  gap: 10px; /* Space between the children themselves */
 }
 .scrolldiv{
   background: #fff;
