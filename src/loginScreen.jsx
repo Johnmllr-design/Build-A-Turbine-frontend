@@ -13,7 +13,7 @@ function LoginScreen() {
     /* make a new user account on login */
     async function login(username, password){
         
-            console.log("valid credentials");
+            console.log("logging in ", username);
             try{
                 const response = await fetch("https://determined-luck-production-4525.up.railway.app/loginuser", {
                     method: "POST",
@@ -22,6 +22,7 @@ function LoginScreen() {
                 });
                 console.log(response);
                 const result = await response.text();
+                console.log("does " + username + " exist? " + ", " + result);
 
                 /* log in if it's a new profile */
                 if (result === 'true'){
