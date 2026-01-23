@@ -30,13 +30,15 @@ function TurbineCard(props) {
   async function getModelPrediction(){
 
     // string to query the pytorch model
-    const apiString = "buildaturbine-deep-learning-production.up.railway.app/prediction";
+    const apiString = "https://buildaturbine-deep-learning-production.up.railway.app/prediction";
+
+    const payload = {type: turbine.type, longitude : turbine.long, latitude : turbine.lat};
 
     // make a get request
     const result = await fetch(apiString, { 
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: turbine.type, longitude : turbine.long, latitude : turbine.lat})});
+      body: JSON.stringify(payload)});
 
     const json = await result.json();
 
