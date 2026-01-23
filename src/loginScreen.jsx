@@ -5,6 +5,7 @@ import React from 'react'
 import Fullscreen from './fullscreen'
 import './App.css'
 import TurbineSpinner from './turbineSpinner'
+import WelcomeInfo from './welcomeInfo'
 
 function LoginScreen() {
     const [loggedIn, setLogin] = useState(false);
@@ -38,7 +39,6 @@ function LoginScreen() {
     async function makeNew(username, password, p2){
         if (username.length > 3 && password.length > 4 && password === p2){
             try{
-                const railwayUrl = import.meta.env.RAILWAY_API_URL;
                 console.log("the api base url is ", railwayUrl);
                 const response = await fetch("https://determined-luck-production-4525.up.railway.app/makenewuser", {
                     method: "POST",
@@ -68,11 +68,9 @@ function LoginScreen() {
     if (!loggedIn){
         return (
         <div className='regular-card'>
-            <TurbineSpinner size={140} speed={0.7}/>
-            <TurbineSpinner size={140} speed={0.3}/>
-            <TurbineSpinner size={140} speed={0.5}/>
-            <TurbineSpinner size={140} speed={40}/>
+            <TurbineSpinner size={140} speed={10}/>
             <div className='app-headline'>Build-A-Turbine</div>
+            <WelcomeInfo/>
             <div className='div4'>
                 <div className='div2'>
                     <input className='div' id="uname" placeholder='username'/>
