@@ -30,7 +30,7 @@ function TurbineCard(props) {
   async function getModelPrediction(){
 
     // string to query the pytorch model
-    const apiString = "determined-luck-production-4525.up.railway.app/prediction";
+    const apiString = "buildaturbine-deep-learning-production.up.railway.app/prediction";
 
     // make a get request
     const result = await fetch(apiString, { 

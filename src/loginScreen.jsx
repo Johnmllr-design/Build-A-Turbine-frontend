@@ -12,7 +12,6 @@ function LoginScreen() {
     /* when the login is successful, provide the main functionality */
     /* make a new user account on login */
     async function login(username, password){
-        
             console.log("logging in ", username);
             try{
                 const response = await fetch("https://determined-luck-production-4525.up.railway.app/loginuser", {
@@ -38,7 +37,6 @@ function LoginScreen() {
 
     async function makeNew(username, password, p2){
         if (username.length > 3 && password.length > 4 && password === p2){
-            console.log("MAKING NEW USER: valid credentials");
             try{
                 const response = await fetch("https://determined-luck-production-4525.up.railway.app/makenewuser", {
                     method: "POST",
@@ -46,7 +44,6 @@ function LoginScreen() {
                     body: JSON.stringify({ username, password }),
                 });
                 const result = await response.text();
-                console.log("we got this response: ", result);
 
                 /* log in if it's a new profile */
                 if (result === 'true'){

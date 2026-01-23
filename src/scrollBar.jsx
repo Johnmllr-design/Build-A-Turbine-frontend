@@ -5,9 +5,9 @@ import TurbineSpinner from './turbineSpinner'
 
 function ScrollBar(props) {
 
-    const turbineOptions = ['VestasV126-3.3', 'VestasV112-3.075', 'SiemensSWT-3.2-113', 'VestasV90-3.0', 
-                            'VestasV112-3.0', 'REpowerMM92', 'VestasV112-3.3', 'VestasV100-1.8',
-                             'VestasV126-3.45', 'VestasV117-3.3', 'VestasV117-3.6', 'VestasV112-3.45'];
+    const turbineOptions = ['Siemens SWT-2.3-93', 'Siemens SWT-2.3-108', 'Siemens SWT-2.3-101', 'Siemens SWT-2.3-82', 
+                            'Repower MM92', 'Siemens SWT-3.2-113', 'Siemens SWT-2.625-120', 'Siemens SWT-3.0-101', 
+                            'Dewind D8.2', 'Dewind D9.2', 'Nordex N117/3000', 'Siemens SWT-6.0-154'];
 
     const [selected, setSelected] = useState(-1);
 
