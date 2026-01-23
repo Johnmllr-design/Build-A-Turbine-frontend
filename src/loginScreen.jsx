@@ -68,7 +68,6 @@ function LoginScreen() {
     if (!loggedIn){
         return (
         <div className='regular-card'>
-            <TurbineSpinner size={140} speed={10}/>
             <div className='app-headline'>Build-A-Turbine</div>
             <WelcomeInfo/>
             <div className='div4'>
