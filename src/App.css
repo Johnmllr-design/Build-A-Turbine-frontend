@@ -209,7 +209,7 @@
 
 .container {
   display: flex;
-  background-color: #888;
+  background-color: #f9f9f9;
   padding: 10px;
   border-radius: 15px;
   gap: 50px;

@@ -65,12 +65,12 @@ function LoginScreen() {
 
     if (!loggedIn){
         return (
-        <div>
+        <div className='regular-card'>
             <TurbineSpinner size={140} speed={0.7}/>
             <TurbineSpinner size={140} speed={0.3}/>
             <TurbineSpinner size={140} speed={0.5}/>
             <TurbineSpinner size={140} speed={40}/>
-            <div className='app-headline'>UPDATED</div>
+            <div className='app-headline'>Build-A-Turbine</div>
             <div className='div4'>
                 <div className='div2'>
                     <input className='div' id="uname" placeholder='username'/>
