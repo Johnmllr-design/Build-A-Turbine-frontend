@@ -34,7 +34,6 @@ function Fullscreen(props) {
             headers : {"Content-Type" : "application/json"},
             body : JSON.stringify({username, type, date})
         });
-        const result = await response4.text();
         } catch (error) {
             console.log(error);
         }
