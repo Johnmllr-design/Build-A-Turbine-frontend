@@ -12,6 +12,8 @@ function LoginScreen() {
     const [loggedIn, setLogin] = useState(false);
     const [info, setInfo] = useState(false);
     const [incorrectLogin, setIncorrect] = useState(false);  
+    const [doesntEsixt, setNotExist] = useState(false);  
+
 
 
     /* when the login is successful, provide the main functionality */
@@ -33,6 +35,7 @@ function LoginScreen() {
                     setLogin(true)
                 }else{
                     console.log("the following user doesn't exist: ", username);
+                    setNotExist(true)
                 }
             }catch(error){
                 console.log(error);
@@ -89,7 +92,10 @@ function LoginScreen() {
             </div>
             <button className='welc' onClick={() => {console.log("Clicked me!"); setInfo(true);}}>How does buildATurbine work?</button>
             {
-                incorrectLogin && <div className='welc' >Erronous login info</div>
+                incorrectLogin && <div className='welc' >Username already taken</div>
+            }
+            {
+                doesntEsixt && <div className='welc' >User doesn't exist</div>
             }
         </div>
         )
