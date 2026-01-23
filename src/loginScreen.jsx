@@ -38,6 +38,8 @@ function LoginScreen() {
     async function makeNew(username, password, p2){
         if (username.length > 3 && password.length > 4 && password === p2){
             try{
+                const railwayUrl = import.meta.env.RAILWAY_API_URL;
+                console.log("the api base url is ", railwayUrl);
                 const response = await fetch("https://determined-luck-production-4525.up.railway.app/makenewuser", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
