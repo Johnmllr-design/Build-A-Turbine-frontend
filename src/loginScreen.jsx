@@ -11,6 +11,7 @@ import Explanation from './explanation'
 function LoginScreen() {
     const [loggedIn, setLogin] = useState(false);
     const [info, setInfo] = useState(false);
+    const [incorrectLogin, setIncorrect] = useState(false);  
 
 
     /* when the login is successful, provide the main functionality */
@@ -54,6 +55,7 @@ function LoginScreen() {
                     setLogin(true);
                 }else{
                     console.log("User exists");
+                    setIncorrect(true);
                 }
             }catch(error){
                 console.log(error);
@@ -85,7 +87,10 @@ function LoginScreen() {
                     <button className='btn' onClick={() => {makeNew(document.getElementById("uname2").value, document.getElementById("pw2").value, document.getElementById("rpw2").value)}}>Make a New Account</button>
                 </div>
             </div>
-            <button className='welc' onClick={() => {console.log("Clicked me!"); setInfo(true); }}>How does buildATurbine work?</button>
+            <button className='welc' onClick={() => {console.log("Clicked me!"); setInfo(true);}}>How does buildATurbine work?</button>
+            {
+                incorrectLogin && <div className='welc' >Erronous login info</div>
+            }
         </div>
         )
     } 
