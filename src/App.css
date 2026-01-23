@@ -1,318 +1,218 @@
-/* =========================
-   Design tokens (easy tuning)
-   ========================= */
-:root{
-  --bg: #0b0f17;
-  --surface: rgba(255,255,255,0.90);
-  --surface-2: rgba(255,255,255,0.82);
-  --border: rgba(255,255,255,0.18);
-  --border-2: rgba(0,0,0,0.08);
-
-  --text: rgba(16, 24, 40, 0.92);
-  --muted: rgba(16, 24, 40, 0.60);
-
-  --radius: 18px;
-  --radius-sm: 12px;
-
-  --shadow-1: 0 10px 30px rgba(0,0,0,0.10);
-  --shadow-2: 0 18px 50px rgba(0,0,0,0.18);
-
-  --ring: 0 0 0 4px rgba(99, 102, 241, 0.20);
-
-  --accent: #6366F1;  /* indigo */
-  --accent-2: #EC4899;/* pink  */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-/* Optional: make the whole page feel premium */
-body{
-  margin: 0;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text);
-
-  /* subtle background */
-  background:
-    radial-gradient(1200px 800px at 15% 10%, rgba(99,102,241,0.25), transparent 60%),
-    radial-gradient(900px 700px at 85% 20%, rgba(236,72,153,0.18), transparent 55%),
-    radial-gradient(1000px 800px at 50% 95%, rgba(16,185,129,0.12), transparent 60%),
-    #0b0f17;
-}
-
-/* Shared “card” base so everything looks consistent */
-.card-base{
-  background: linear-gradient(180deg, var(--surface), var(--surface-2));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.card-base:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-2);
-  border-color: rgba(255,255,255,0.30);
-}
-
-/* =========================
-   Your classes (same layout)
-   ========================= */
-
-/* Similar to your .regular_card */
 .regular_card{
-  composes: card-base; /* if you’re not using CSS modules, ignore this line */
-  background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.92));
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: var(--radius);
+  background: #fff;
+  border-radius: 16px;
   padding: 1.25rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.05);
   max-width: 350px;
   margin: 1rem auto;
-
   font-family: "Inter", sans-serif;
-  font-weight: 400;              /* 200 was washing out readability */
-  color: rgba(16,24,40,0.92);
-  font-size: 1.05rem;
-  line-height: 1.55;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-.regular_card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 18px 55px rgba(0,0,0,0.20);
-  border-color: rgba(99,102,241,0.35);
+  font-weight:200;
+  color: #1a1a1a;
+  font-size: larger;
 }
 
-/* Container flex cards */
-.div,
-.div3,
-.scrolldiv,
-.scrolldiv-2,
-.div2,
-.div4{
-  border-radius: var(--radius);
-  max-width: 350px;
-  margin: 1rem auto;
-  padding: 20px;
-  gap: 20px;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-/* Your main “panel” card */
 .div{
-  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78));
-  border: 1px solid rgba(255,255,255,0.22);
-  box-shadow: 0 14px 42px rgba(0,0,0,0.16);
-  color: var(--muted);
-
+  background: #fdfdfd;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #13020273;
+  border: 3px solid rgba(0,0,0,0.05);
+  max-width: 350px;
+  margin: 1rem auto;
   font-family: "Inter", sans-serif;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.div:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 22px 65px rgba(0,0,0,0.24);
-  border-color: rgba(236,72,153,0.35);
+  display: flex; /* Use flexbox for easy layout control */
+  flex-wrap: wrap; /* Allows children to wrap if they run out of space */
+  padding: 20px; /* Space above and to the sides inside the parent */
+  gap: 20px; /* Space between the children themselves */
+}.div:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-/* Variant panel */
 .div3{
-  background: linear-gradient(180deg, rgba(255,255,255,0.90), rgba(255,255,255,0.75));
-  border: 1px solid rgba(255,255,255,0.20);
-  box-shadow: 0 14px 42px rgba(0,0,0,0.16);
-  color: var(--muted);
-
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.div3:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 22px 65px rgba(0,0,0,0.24);
-  border-color: rgba(99,102,241,0.35);
+  background: #fdfdfd;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #13020273;
+  border: 3px solid rgba(0,0,0,0.05);
+  max-width: 350px;
+  margin: 1rem auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex; /* Use flexbox for easy layout control */
+  flex-wrap: wrap; /* Allows children to wrap if they run out of space */
+  padding: 20px; /* Space above and to the sides inside the parent */
+  gap: 20px; /* Space between the children themselves */
+}.div:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-/* Headline: make it pop */
-.app-headline{
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+.app-headline {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
   font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 850;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 
-  /* premium gradient text */
-  background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0.72));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  color: #e2e229ab; /* near-black */
 }
 
-/* Transparent “frame” panel */
+
+
+
 .div4{
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: 0 18px 60px rgba(0,0,0,0.20);
-  color: rgba(255,255,255,0.75);
-
+  background: #fdfdfd00;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #13020273;
   height: 750px;
-
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border: 3px solid rgb(246, 246, 246);
+  max-width: 350px;
+  margin: 1rem auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex; /* Use flexbox for easy layout control */
+  flex-wrap: wrap; /* Allows children to wrap if they run out of space */
+  padding: 20px; /* Space above and to the sides inside the parent */
+  gap: 20px; /* Space between the children themselves */
 }
-.div4:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 26px 80px rgba(0,0,0,0.30);
-  border-color: rgba(255,255,255,0.26);
+.scrolldiv{
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #333;
+  border: 3px solid rgba(0,0,0,0.05);
+  max-width: 350px;
+  margin: 1rem auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex; /* Use flexbox for easy layout control */
+  flex-wrap: wrap; /* Allows children to wrap if they run out of space */
+  padding: 20px; /* Space above and to the sides inside the parent */
+  gap: 20px; /* Space between the children themselves */
+  height: 200px; 
+  /* Enable vertical scrolling when content exceeds the height */
+  overflow-y: scroll; 
+  height: 200px; 
+  /* Enable vertical scrolling when content exceeds the height */
+  overflow-y: scroll;
+}.div:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-/* Scroll cards */
-.scrolldiv,
 .scrolldiv-2{
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.80));
-  border: 1px solid rgba(255,255,255,0.20);
-  box-shadow: 0 14px 45px rgba(0,0,0,0.16);
-  color: rgba(16,24,40,0.85);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #333;
+  border: 3px solid rgba(0,0,0,0.05);
+  max-width: 350px;
+  margin: 1rem auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  display: flex; /* Use flexbox for easy layout control */
+  flex-wrap: wrap; /* Allows children to wrap if they run out of space */
+  padding: 20px; /* Space above and to the sides inside the parent */
+  gap: 20px; /* Space between the children themselves */
+  height: 600px; 
+  /* Enable vertical scrolling when content exceeds the height */
+  overflow-y: scroll; 
+  /* Enable vertical scrolling when content exceeds the height */
+  overflow-y: scroll;
+}.div:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-.scrolldiv{ height: 200px; }
-.scrolldiv-2{ height: 600px; }
 
-.scrolldiv:hover,
-.scrolldiv-2:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 22px 70px rgba(0,0,0,0.24);
-  border-color: rgba(16,185,129,0.35);
-}
 
-/* Pretty scrollbars (Chromium/WebKit) */
-.scrolldiv::-webkit-scrollbar,
-.scrolldiv-2::-webkit-scrollbar{
-  width: 10px;
-}
-.scrolldiv::-webkit-scrollbar-thumb,
-.scrolldiv-2::-webkit-scrollbar-thumb{
-  background: linear-gradient(180deg, rgba(99,102,241,0.55), rgba(236,72,153,0.45));
-  border-radius: 999px;
-  border: 2px solid rgba(255,255,255,0.55);
-}
-.scrolldiv::-webkit-scrollbar-track,
-.scrolldiv-2::-webkit-scrollbar-track{
-  background: rgba(0,0,0,0.06);
-  border-radius: 999px;
-}
-
-/* Secondary card (your .div2) */
 .div2{
-  background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.70));
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 14px 45px rgba(0,0,0,0.16);
-  color: rgba(16,24,40,0.82);
-
+  background: #c7c5c59b;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #121111a4;
+  border: 3px solid rgba(0,0,0,0.05);
+  max-width: 350px;
   max-height: 350px;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-.div2:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 22px 70px rgba(0,0,0,0.24);
-  border-color: rgba(99,102,241,0.35);
+  margin: 1rem auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 20px; /* Space above and to the sides inside the parent */
+  gap: 20px; /* Space between the children themselves */
 }
 
-/* Your serif “elegant-card”, upgraded */
-.elegant-card{
+
+
+.elegant-card {
+  /* Dimensions and spacing */
   width: 80%;
   max-width: 500px;
-  margin: 2rem auto;
+  margin: 2rem auto; /* Centers the div on the page */
   padding: 1.5rem;
-
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.82));
-  border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,0.22);
-  box-shadow: 0 18px 60px rgba(0,0,0,0.14);
-
-  font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  color: rgba(16,24,40,0.90);
-  line-height: 1.7;
+  
+  /* Appearance */
+  background-color: #ffffff; /* Use a clean white background */
+  border-radius: 8px; /* Softly rounded corners */
+  
+  /* Elegant, subtle shadow (key to elegance) */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 
+              0 1px 4px rgba(0, 0, 0, 0.03); 
+  
+  /* Text styling for readability */
+  font-family: 
+    "Garamond", 
+    "Baskerville", 
+    "Palatino Linotype", 
+    "Georgia", 
+    serif;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Buttons: rich gradient + subtle shine */
-.btn,
-.btn2{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
 
-  padding: .60rem 1.05rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.22);
-
-  color: rgba(255,255,255,0.96);
-  font-weight: 650;
+.btn {
+  display: inline-block;
+  padding: .55rem 1rem;
+  border-radius: 8px;
+  background: #e10ccbd3;
+  color:#ffffff;
+  font-weight: 500;
   text-decoration: none;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 10px 26px rgba(99,102,241,0.25), 0 10px 26px rgba(236,72,153,0.18);
-
-  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
-  position: relative;
-  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}.btn:hover{
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-.btn::after,
-.btn2::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(600px 200px at 20% 10%, rgba(255,255,255,0.28), transparent 55%);
-  opacity: 0.9;
-  pointer-events: none;
+.btn2 {
+ display: inline-block;
+  padding: .55rem 1rem;
+  border-radius: 8px;
+  background: #e10ccbd3;
+  color:#ebe9e9;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}.btn2:hover{
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-.btn:hover,
-.btn2:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 44px rgba(99,102,241,0.30), 0 18px 44px rgba(236,72,153,0.22);
-}
-
-.btn:focus-visible,
-.btn2:focus-visible{
-  outline: none;
-  box-shadow: var(--ring), 0 18px 44px rgba(99,102,241,0.30), 0 18px 44px rgba(236,72,153,0.22);
-}
-
-/* Optional: normalize weird .div hover duplicates in your original CSS */
-.div:hover,
-.div3:hover,
-.scrolldiv:hover,
-.scrolldiv-2:hover{
-  /* already defined above; keep for clarity */
+.container {
+  display: flex;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 15px;
+  gap: 50px;
 }
 
 .scroll-container {
