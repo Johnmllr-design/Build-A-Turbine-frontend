@@ -54,7 +54,7 @@ function Fullscreen(props) {
     return(
         <div className='container'>
             {/*turbine sidebar component*/}
-            <TurbineSidebar turbines={turbines} setTurbines={setTurbine}/>
+            <TurbineSidebar turbines={turbines} username={username} setTurbines={setTurbine}/>
             {/*api provider component*/}
             <APIProvider apiKey='AIzaSyBTgKunKe6FIf4zdhWSjZh1oZZ76lhEG9I'>
                 <div style={{height : "590px", width : "1290px", borderStyle : 'solid', 
@@ -116,7 +116,6 @@ function Fullscreen(props) {
                                 /* make a call to the backend to store this turbine in the database*/
                                 const date = new Date();
                                 const officialDate = "" + date.getMonth().toString() + "-" + date.getDate().toString() + "-" + date.getFullYear().toString();
-                                console.log(officialDate);
 
                                 addTurbine(username, selectedTurbine, officialDate);
                         }

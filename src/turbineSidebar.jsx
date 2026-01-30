@@ -8,6 +8,7 @@ function TurbineSidebar(props) {
 
     const current_turbines = props.turbines;
     const setTurbines = props.setTurbines;
+    const username = props.username;
 
 
     return (
@@ -16,7 +17,7 @@ function TurbineSidebar(props) {
                 console.log(turbine);
                 if (turbine.valid == true){
                 return(
-                        <TurbineCard key={i} turb={turbine} allturbs={current_turbines} setTurbines={setTurbines}/> 
+                        <TurbineCard key={i} turb={turbine} username={username} allturbs={current_turbines} setTurbines={setTurbines}/> 
                 )}
             }
             )}
