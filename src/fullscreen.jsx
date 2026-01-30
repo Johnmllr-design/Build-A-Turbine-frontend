@@ -25,6 +25,8 @@ function Fullscreen(props) {
     const [opened, setOpened] = useState(false);
     const [clickedLocation, setLoc] = useState({lat : 40, lng : 265});
     const [mapTurb, setMapTurb] = useState("");
+    const officialDate = "" + date.getMonth().toString() + "-" + date.getDate().toString() + "-" + date.getFullYear().toString();
+
 
 
     const username = props.username;
@@ -106,7 +108,6 @@ function Fullscreen(props) {
                 <button className="btn" onClick={() => {
                             if(selected()){
                                 /* set the new user's turbines for the sidebar */
-                                const officialDate = "" + date.getMonth().toString() + "-" + date.getDate().toString() + "-" + date.getFullYear().toString();
                                 setTurbine(turbines => [...turbines, {
                                 type: selectedTurbine, 
                                 long: document.getElementById("long").value, 
@@ -116,7 +117,6 @@ function Fullscreen(props) {
                                 }])  
                                 
                                 /* make a call to the backend to store this turbine in the database*/
-                                const date = new Date();
                                 console.log("making turbine:" + username + " " + selectedTurbine + " " + officialDate);
                                 addTurbine(username, selectedTurbine, officialDate);
                         }
