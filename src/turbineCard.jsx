@@ -26,7 +26,7 @@ function TurbineCard(props) {
     setTurbines(arr);
 
     // string to query the removing turbine API endpoint
-    const apiString = "https://buildaturbine-deep-learning-production.up.railway.app/removeturbine";
+    const apiString = "https://build-a-turbine-frontend-v287.vercel.app/removeturbine";
 
     // make a post request to remove the value
     const result = await fetch(apiString, { 
