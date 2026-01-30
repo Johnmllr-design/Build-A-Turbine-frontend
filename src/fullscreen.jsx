@@ -112,7 +112,7 @@ function Fullscreen(props) {
                                 type: selectedTurbine, 
                                 long: document.getElementById("long").value, 
                                 lat:document.getElementById("lat").value,
-                                //date: officialDate,
+                                date: officialDate,
                                 valid:true
                                 }])  
                                 
