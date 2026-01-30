@@ -116,7 +116,7 @@ function Fullscreen(props) {
                                 /* make a call to the backend to store this turbine in the database*/
                                 const date = new Date();
                                 const officialDate = "" + date.getMonth().toString() + "-" + date.getDate().toString() + "-" + date.getFullYear().toString();
-
+                                console.log("making turbine:" + username + " " + selectedTurbine + " " + officialDate);
                                 addTurbine(username, selectedTurbine, officialDate);
                         }
                     }}>add turbine location</button>
