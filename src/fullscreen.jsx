@@ -25,7 +25,9 @@ function Fullscreen(props) {
     const [opened, setOpened] = useState(false);
     const [clickedLocation, setLoc] = useState({lat : 40, lng : 265});
     const [mapTurb, setMapTurb] = useState("");
+    const date = new Date();
     const officialDate = "" + date.getMonth().toString() + "-" + date.getDate().toString() + "-" + date.getFullYear().toString();
+
 
 
 
@@ -113,7 +115,7 @@ function Fullscreen(props) {
                                 long: document.getElementById("long").value, 
                                 lat:document.getElementById("lat").value,
                                 date: officialDate,
-                                valid:true
+                                valid: true
                                 }])  
                                 
                                 /* make a call to the backend to store this turbine in the database*/
