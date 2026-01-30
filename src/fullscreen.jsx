@@ -106,16 +106,17 @@ function Fullscreen(props) {
                 <button className="btn" onClick={() => {
                             if(selected()){
                                 /* set the new user's turbines for the sidebar */
+                                const officialDate = "" + date.getMonth().toString() + "-" + date.getDate().toString() + "-" + date.getFullYear().toString();
                                 setTurbine(turbines => [...turbines, {
                                 type: selectedTurbine, 
                                 long: document.getElementById("long").value, 
                                 lat:document.getElementById("lat").value,
+                                date: officialDate,
                                 valid:true
                                 }])  
                                 
                                 /* make a call to the backend to store this turbine in the database*/
                                 const date = new Date();
-                                const officialDate = "" + date.getMonth().toString() + "-" + date.getDate().toString() + "-" + date.getFullYear().toString();
                                 console.log("making turbine:" + username + " " + selectedTurbine + " " + officialDate);
                                 addTurbine(username, selectedTurbine, officialDate);
                         }
