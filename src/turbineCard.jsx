@@ -32,7 +32,8 @@ function TurbineCard(props) {
     const result = await fetch(apiString, { 
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({username, type, date})});
+      body: JSON.stringify({username, type, date})
+    });
 
     const resultText = await result.text();
     console.log(resultText);
