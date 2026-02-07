@@ -17,19 +17,21 @@ function Explanation(){
         return (<LoginScreen/>)
     } else{
         return (
-            <div>
-                <div className='welc'> 
-                    Build-A-Turbine is a lightweight frontend wrapper around an instance of the
-                    Google Maps API. This works in harmony with a pytorch model trained on 
-                    historical information from the electricity generation of 60,000 publically 
-                    available turbine locations's electricity output. Using the promise of data science,
-                    which tells us that we can reason about patterns given a large enough dataset,
-                    build-a-turbine lets corporations and regular people alike leverage AI and deep learning to
-                    predict turbine performance before breaking ground.
+            <div className="explanation-screen">
+                <div className="explanation-content">
+                    <h2 className="explanation-title">How Build-A-Turbine Works</h2>
+                    <div className="welc explanation-text">
+                        Build-A-Turbine is a lightweight frontend wrapper around the Google Maps API,
+                        working in harmony with a PyTorch model trained on historical electricity generation
+                        from <strong>60,000+</strong> publicly available turbine locations. Using the promise of data science
+                        — that we can reason about patterns given a large enough dataset — Build-A-Turbine lets
+                        corporations and individuals alike leverage <strong>AI and deep learning</strong> to predict
+                        turbine performance before breaking ground.
+                    </div>
+                    <button className="btn" onClick={() => setRet(true)}>
+                        ← Back to login
+                    </button>
                 </div>
-                <button className='btn' onClick={() => {setRet(true)}}>
-                    back to login
-                </button>
             </div>
         )
     }

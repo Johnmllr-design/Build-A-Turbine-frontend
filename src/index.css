@@ -1,68 +1,123 @@
+/* ═══════════════════════════════════════════════════════════
+   BUILD-A-TURBINE — Modern Design System
+   Dark, tech-forward, renewable energy aesthetic
+   ═══════════════════════════════════════════════════════════ */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* Core palette — electric renewable vibes */
+  --bg-deep: #05080d;
+  --bg-base: #0a0f17;
+  --bg-elevated: #0f1620;
+  --bg-card: #131c28;
+  --bg-glass: rgba(19, 28, 40, 0.6);
+  
+  --accent-cyan: #22d3ee;
+  --accent-teal: #14b8a6;
+  --accent-lime: #a3e635;
+  --accent-mint: #5eead4;
+  --accent-electric: #38bdf8;
+  --accent-violet: #a78bfa;
+  --accent-rose: #fb7185;
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: rgba(241, 245, 249, 0.75);
+  --text-muted: rgba(241, 245, 249, 0.5);
+  
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-accent: rgba(34, 211, 238, 0.4);
+  
+  --glow-cyan: 0 0 40px rgba(34, 211, 238, 0.25);
+  --glow-teal: 0 0 60px rgba(20, 184, 166, 0.2);
+  --shadow-deep: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.4);
+  
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  font-family: var(--font-sans);
+  line-height: 1.6;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0f0315;
-
+  color: var(--text-primary);
+  background-color: var(--bg-deep);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Animated gradient background */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
+  min-height: 100vh;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(20, 184, 166, 0.1), transparent),
+    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(167, 139, 250, 0.08), transparent),
+    var(--bg-deep);
+  background-attachment: fixed;
+}
+
+#root {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+a {
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: color 0.2s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+a:hover {
+  color: var(--accent-mint);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-teal), var(--accent-cyan));
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Base button reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

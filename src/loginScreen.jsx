@@ -75,35 +75,37 @@ function LoginScreen() {
 
     if (!loggedIn){
         return (
-        <div className='regular-card'>
-            <div className='app-headline'>Build-A-Turbine</div>
-            <div className='div4'>
-                <div className='div2'>
-                    <input className='div' id="uname" placeholder='username'/>
-                    <input className='div' id="pw" placeholder='password'/>
-                    <button className='btn' onClick={() => {login(document.getElementById("uname").value, document.getElementById("pw").value)}}>Log in</button>
-                </div>
-                <div className='div2'>
-                    <input className='div' id="uname2" placeholder='username (3+ chars)'/>
-                    <input className='div' id="pw2" placeholder='password (4+ chars)'/>
-                    <input className='div' id="rpw2" placeholder='retype password (4+ chars)'/><br/>
-                    <button className='btn' onClick={() => {makeNew(document.getElementById("uname2").value, document.getElementById("pw2").value, document.getElementById("rpw2").value)}}>Make a New Account</button>
+        <div className="login-screen">
+            <div className="login-card">
+                <h1 className="app-headline">Build-A-Turbine</h1>
+                <div className="login-panels">
+                    <div className="login-panel">
+                        <h3 className="login-panel__title">Log in</h3>
+                        <input className="login-input" id="uname" placeholder="Username" />
+                        <input className="login-input" id="pw" type="password" placeholder="Password" />
+                        <button className="btn" onClick={() => login(document.getElementById("uname").value, document.getElementById("pw").value)}>Log in</button>
+                    </div>
+                    <div className="login-panel">
+                        <h3 className="login-panel__title">Create Account</h3>
+                        <input className="login-input" id="uname2" placeholder="Username (3+ chars)" />
+                        <input className="login-input" id="pw2" type="password" placeholder="Password (4+ chars)" />
+                        <input className="login-input" id="rpw2" type="password" placeholder="Retype password" />
+                        <button className="btn" onClick={() => makeNew(document.getElementById("uname2").value, document.getElementById("pw2").value, document.getElementById("rpw2").value)}>Create Account</button>
+                    </div>
                 </div>
             </div>
-            <button className='welc' onClick={() => {console.log("Clicked me!"); setInfo(true);}}>How does buildATurbine work?</button>
-            {
-                incorrectLogin && <div className='welc' >Username already taken</div>
-            }
-            {
-                doesntEsixt && <div className='welc' >User doesn't exist</div>
-            }
+            <button className="welc welc--clickable" onClick={() => setInfo(true)}>
+                How does Build-A-Turbine work?
+            </button>
+            {incorrectLogin && <div className="welc welc--error">Username already taken</div>}
+            {doesntEsixt && <div className="welc welc--error">User doesn&apos;t exist</div>}
         </div>
         )
     } 
     
     else {
         return (
-            <Fullscreen username={document.getElementById('uname').value}/>
+            <Fullscreen username={document.getElementById('uname')?.value || document.getElementById('uname2')?.value || ''} />
         )
     }
 }

@@ -64,28 +64,28 @@ export default function TurbineSpinner({
 
         .turbine-ring {
           fill: none;
-          stroke: rgb(254, 251, 251);
+          stroke: #22d3ee;
           stroke-width: 2;
         }
 
         .turbine-tower {
-          fill: rgba(254, 251, 251, 0.23);
+          fill: rgba(34, 211, 238, 0.5);
         }
 
         .turbine-nacelle {
-          fill: rgba(254, 251, 251, 0.29);
+          fill: rgba(34, 211, 238, 0.6);
         }
 
         .turbine-hub {
-          fill: rgba(254, 251, 251, 0.27);
+          fill: rgba(34, 211, 238, 0.7);
         }
 
         .turbine-blade {
-          fill: rgb(254, 251, 251);
+          fill: #22d3ee;
         }
 
         .turbine-hubcap {
-          fill: rgba(254, 251, 251, 0.03);
+          fill: rgba(5, 8, 13, 0.5);
         }
 
         .turbine-blades {

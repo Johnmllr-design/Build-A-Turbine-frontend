@@ -55,15 +55,11 @@ function Fullscreen(props) {
 
 
 
-    return(
-        <div className='container'>
-            {/*turbine sidebar component*/}
-            <TurbineSidebar turbines={turbines} username={username} setTurbines={setTurbine}/>
-            {/*api provider component*/}
-            <APIProvider apiKey='AIzaSyBTgKunKe6FIf4zdhWSjZh1oZZ76lhEG9I'>
-                <div style={{height : "590px", width : "1290px", borderStyle : 'solid', 
-                            borderWidth : "10px", borderColor: 'white', touchAction : 'none', 
-                            borderRadius: "20px", boxShadow: "5px 5px 10px grey"}}>
+    return (
+        <div className="container fullscreen-layout">
+            <TurbineSidebar turbines={turbines} username={username} setTurbines={setTurbine} />
+            <APIProvider apiKey="AIzaSyBTgKunKe6FIf4zdhWSjZh1oZZ76lhEG9I">
+                <div className="map-container" style={{ touchAction: 'none' }}>
                     
                     {/*Map component*/}
                     <Map 
@@ -88,25 +84,24 @@ function Fullscreen(props) {
                                     setMapTurb(turb.type); 
                                     setOpened(true);
                                     setLoc({lat : Number(turb.lat), lng :  Number(turb.long)})}}>
-                                    <Pin background = "pink" glyphColor="pink" borderColor="black" scale={0.5} />
+                                    <Pin background="#22d3ee" glyphColor="#05080d" borderColor="#14b8a6" scale={0.6} />
                                 </AdvancedMarker>)
                             })
                         }
                         {opened && 
                         <InfoWindow position={clickedLocation} onCloseClick={() => {setOpened(false);}}>
-                            <div className='btn'>{mapTurb} at {clickedLocation.lat.toString()}, {clickedLocation.lng.toString()}</div>
+                            <div className="map-infowindow">{mapTurb} — {Number(clickedLocation.lat).toFixed(2)}°, {Number(clickedLocation.lng).toFixed(2)}°</div>
                         </InfoWindow>
                         }
                     </Map>
                 </div>
             </APIProvider>
-
-            {/*new turbine component*/}
-            <div className= 'regular_card'>
+            <div className="regular_card add-turbine-panel">
+                <h3 className="panel-label">Select Turbine Type</h3>
                 <ScrollBar selectedTurbine={selectedTurbine} setSelected={setSelected}/>
                 <div className='div3' id="type">{selectedTurbine}</div>
-                <input className='input' id="long" placeholder='click map for longitude'/>
-                <input className='input' id="lat" placeholder='click map forlatitude'/><br/>
+                <input className="input" id="long" placeholder="Click map for longitude" />
+                <input className="input" id="lat" placeholder="Click map for latitude" />
                 <button className="btn" onClick={() => {
                             if(selected()){
                                 /* set the new user's turbines for the sidebar */
@@ -122,7 +117,7 @@ function Fullscreen(props) {
                                 console.log("making turbine:" + username + " " + selectedTurbine + " " + officialDate);
                                 addTurbine(username, selectedTurbine, officialDate);
                         }
-                    }}>add turbine location</button>
+                    }}>Add Turbine Location</button>
             </div>
         </div>
     )
